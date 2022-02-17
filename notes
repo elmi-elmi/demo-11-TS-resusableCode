@@ -1,0 +1,263 @@
+    ------------------------------------------------------
+ 1. Getting Started with Typescript ✔️
+------------------------------------------------------
+
+4 - installing:
+
+    npm install -g typescript
+    npm install -g ts-node --> for execute ts with one command at terminal
+
+    tsc --> gives us access to a command ( means => typescript complier)
+
+6 -
+    //step 1
+    for compile:
+        tsc index.ts
+    //step 2
+    for execute:
+        node index.js
+
+    or you can use ts-node (two step in one)
+
+    ts-node index-ts
+8:
+    interfaces in typescript are useed to define the structure of an Objects
+
+    // step 1 define interface
+    interface Todo{
+        id: number,
+        title: string,
+        completed: boolean
+    }
+
+    // step 2 use interface with "as" keyword
+    cosnt todo = response.data as Todo
+
+
+9:
+    set argument type in function
+
+    const logTodo = (id:number, title:string, completed:boolean){
+        ....
+    }
+ ------------------------------------------------------
+2. What is a Type System ✔️
+------------------------------------------------------
+---
+ ------------------------------------------------------
+3. Type Annotations in Action ✔️
+------------------------------------------------------
+1 - type annotations -- type inference
+
+    type annotations --> we (developers) tell typescript the type
+    type inference   --> typescript guesses the type
+
+2 - types
+            premetive types --> number, boolean, void, undefined, string, symbol, null
+            objects types --> function, array, classes, objects,
+
+3 -
+    varibales:
+    let variables:number = 5;
+    let speed:string = 'fast';
+
+    array:
+    let colors:string[]=['red','blue','green'];
+    let myNumbers:number[]=[1,3,2,5];
+    let thrust:boolean[]=[true,false,true];
+
+    object:
+    const p {x:number, y:string} ={
+        x:10,
+        y:'hi'
+    }
+
+    class:
+    class Car{}
+
+    const car:Car = new Car()
+4:
+    //function
+    const logNumber:(i:number)=>void = (i:number)=>{}
+
+5,6,7,8:
+
+    // when to use annotations
+    // 1) Function that returns the 'any' type
+
+    // 2 ) when we declare a variable on  one Line
+    // and initialize it later
+
+9:
+    // 3 ) variables whose type cannot be inferred correctly
+
+ ------------------------------------------------------
+4. Annotations With Functions and Objects ✔️
+------------------------------------------------------
+1 - functions
+
+    const add = (a:number, b:number):number =>{
+        return a+b;
+    }
+3:
+    function divided(a:number, b:number):number{
+        return a/b;
+    }
+
+    const multiply = function(a:number, b:number):number{
+        return a*b;
+    }
+4:
+    void -- never
+
+    const logged = (message:string):void=>{
+        console.log(message)
+        // you can return null or undefined when use void
+    }
+
+    const throwError = (message:string):never=>{
+        throw new Error(message);
+        // never means that the function never end
+        // also you can use void
+    }
+5:
+    const todaysWeather = {
+        data: new Date(),
+        weather: 'sunny'
+        }
+
+    const logWeather = (forcast:{data:Date, weather:string})=>{
+        console.log(forcast)
+    }
+ ------------------------------------------------------
+ 5. Mastering Typed Arrays✔️
+------------------------------------------------------
+ ------------------------------------------------------
+ 6. Tuples in Typescript ✔️
+------------------------------------------------------
+tuples
+type Drink = [number,string,boolean];
+const cola:Drink = [40,'brown', false];
+
+ ------------------------------------------------------
+ 7. The All-Important Interface✔️
+------------------------------------------------------
+
+
+ ------------------------------------------------------
+8. Building Functionality with Classes✔️
+------------------------------------------------------
+class
+public private protect extends
+
+ ------------------------------------------------------
+ 9. Design Patterns with Typescript✔️
+------------------------------------------------------
+1:
+    parcel-bundler --> Tool to help us  run tyescript in browser
+
+    npm install -g parcel-bundler
+
+5:
+    Definitely Typed Naming Scheme
+    @types/{library name} --> @types/faker
+
+12:
+    fold level 2
+
+
+22:
+
+    implements
+
+    If you want to force a Class to define a variable or function.
+
+    interface Mappabel{
+        color:string;
+        number:number;
+        aFunction():void;
+    }
+
+    class User implements Mappable{}
+
+ ------------------------------------------------------
+10. More on Design Patterns✔️
+------------------------------------------------------
+1:
+2: Configuring the TS Compiler
+
+    for configuration:
+        tsc --init
+
+        rootDir: './src'
+        outDir: './build'
+
+        now if use `tsc -w` automaticaly detect change and compile ts to js(from src to build)
+
+        tsc -w
+
+3:  nodemon -- concurrently
+
+    concurrently:
+    Run multiple commands concurrently;
+
+    nodemon --> detect change automatically
+
+
+    "scripts":{
+        "start:build":"tsc -w",
+        "start:run":"nodemon build/index.js",
+        "start":"concurrently npm:start:*"
+    }
+
+
+7:
+    charCodeAt --> ascii code number 'X'.charCodeAt(0)
+
+
+12:
+
+19:24
+    abstract class -- use for parents class to obligate child class to implements some method or ...;
+
+    abstact class ParentClass{
+        abstract length:number;
+        abstract someMothod(num:number):void;
+        }
+
+ ------------------------------------------------------
+11. Reusable Code
+------------------------------------------------------
+4:
+
+    install type definiation for fileSystem:
+
+    import fs from 'fs';
+    // wrong: npm install types/fs
+    // correct: npm install types/node
+
+    readFileSync
+6:
+
+
+ ------------------------------------------------------
+12. Advanced Generics
+------------------------------------------------------
+ ------------------------------------------------------
+13. Let's Build a Web Framework
+------------------------------------------------------
+ ------------------------------------------------------
+14. Express + Typescript Integration
+------------------------------------------------------
+ ------------------------------------------------------
+15. Decorators
+------------------------------------------------------
+ ------------------------------------------------------
+16. Advanced Express and TS Integration
+------------------------------------------------------
+ ------------------------------------------------------
+17. React and Redux with Typescript
+------------------------------------------------------
+ ------------------------------------------------------
+18. Extras
+------------------------------------------------------

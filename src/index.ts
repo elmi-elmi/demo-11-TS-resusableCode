@@ -1,23 +1,16 @@
-import fs from "fs";
+import {CsvFileReader} from "./CsvFileReader";
+import {MatchResult} from "./MatchResult";
 
-const matches = fs
-  .readFileSync("./3.1 football.csv", {
-    encoding: "utf-8",
-  })
-  .split("\n")
-  .map((row): string[] => row.split(","));
-
+const reader = new CsvFileReader('./3.1 football.csv')
+reader.read()
 console.log("-------------");
-console.log(matches);
+console.log(reader.data);
+
 //
 
 let manUnitedWins = 0;
-enum MatchResult{
-    HomeWin = 'H',
-    AwayWin = 'A',
-    Draw = 'D'
-}
-for(let match of matches){
+
+for(let match of reader.data){
     if(match[1] ==='Man United' && match[5] === MatchResult.HomeWin){
         manUnitedWins++
     }else if(match[2] ==='Man United' && match[5] === MatchResult.AwayWin){
