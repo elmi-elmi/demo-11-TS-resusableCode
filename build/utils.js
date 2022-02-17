@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dateStringToDate = void 0;
-const dateStringToDate = (date) => {
-    const dateSplit = date.split("/").map((d) => parseInt(d));
-    return new Date(dateSplit[0], dateSplit[1], dateSplit[2]);
+const dateStringToDate = (dateString) => {
+    // 28/10/2018
+    const dateParts = dateString
+        .split("/")
+        .map((value) => parseInt(value));
+    return new Date(dateParts[2], dateParts[1], dateParts[1]);
 };
 exports.dateStringToDate = dateStringToDate;
