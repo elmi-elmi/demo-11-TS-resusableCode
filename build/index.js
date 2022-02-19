@@ -2,13 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const MatchResult_1 = require("./MatchResult");
 const MatchReader_1 = require("./MatchReader");
-const reader = new MatchReader_1.MatchReader('./3.1 football.csv');
-reader.read();
+const CsvFileReader_1 = require("./CsvFileReader");
+const csvFileReader = new CsvFileReader_1.CsvFileReader('./3.1 football.csv');
+const reader = new MatchReader_1.MatchReader(csvFileReader);
+reader.load();
 console.log("-------------");
-console.log(reader.data);
 //
 let manUnitedWins = 0;
-for (let match of reader.data) {
+for (let match of reader.matches) {
     if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
         manUnitedWins++;
     }
